@@ -68,7 +68,6 @@ typedef struct
     uint32_t data_type_defining:1;
 } sspApv_mpd_frame_1;
 
-
 typedef union
 {
     uint32_t raw;
