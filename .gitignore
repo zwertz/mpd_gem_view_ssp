@@ -1,8 +1,6 @@
 viewer
 Makefile
 
-Rootfiles/
-
 gem/obj/
 gem/moc/
 gem/lib/
@@ -63,6 +61,8 @@ replay/obj/
 replay/lib/
 
 temp_test/
+tmp_test/
+test/
 
 alignment/moc/
 alignment/obj/
@@ -88,3 +88,6 @@ gem/.qmake.stash
 gui/.qmake.stash
 
 .DS_Store
+
+database/CommonModeRange_*.txt
+database/gem_ped*.dat
