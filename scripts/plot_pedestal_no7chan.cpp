@@ -157,7 +157,7 @@ void plot_pedestal_no7chan(int run, const char *cable_length)
 	auto start = title.find("fiber_");
 	auto end = title.find("_adc");
         TString last = title.back();
-        //cout << last << endl;
+        //cout << title[27] << endl;
 	if(title.find("fiber_") == std::string::npos) continue;
 
 	string test = title.substr(start + 6, end - start - 6);
@@ -173,7 +173,7 @@ void plot_pedestal_no7chan(int run, const char *cable_length)
         if(title.find("noise") != string::npos){
 	  if(h->GetBinContent(10) == 5000 || h->GetBinContent(10) == 0) continue;
 	 // cout << last << endl;
-          h->SetTitle(Form("pedestal_rms_APV_%s", last.Data()));
+          h->SetTitle(Form("pedestal_fiber_%i_rms_APV_%s", current_MPD,last.Data()));
 	  c_rms[nCanvas] -> cd(nPad);
           h->GetYaxis()->SetRangeUser(0,50);
 	  h->Draw();
@@ -193,7 +193,7 @@ void plot_pedestal_no7chan(int run, const char *cable_length)
           //cout << last << endl;
           c_off[nCanvas] -> cd(nPad);
           h->GetYaxis()->SetRangeUser(-125,150);
-          h->SetTitle(Form("pedestal_offset_APV_%s", last.Data()));
+          h->SetTitle(Form("pedestal_offset_fiber_%i_APV_%s",current_MPD,last.Data()));
           h->Draw();
 
           //Give histogram a legend

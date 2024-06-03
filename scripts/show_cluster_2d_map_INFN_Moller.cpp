@@ -2,7 +2,7 @@
 #include <utility>
 
 //#define MOLLER_UV_CHAMBER
-#define TOTAL_LAYERS 4
+#define TOTAL_LAYERS 5
 #define N_CHAMBERS_PER_LAYER 3
 
 //variable that keeps track layer type
@@ -26,7 +26,9 @@ vector<string> v_root_files = {
     //"../Rootfiles/cluster_0_ssp_gem_349.root"
     //"../Rootfiles/cluster_0_ssp_gem_apv_test_756.root"
     //"../Rootfiles/cluster_0_ssp_gem_apv_test_767.root"
-    "../Rootfiles/cluster_0_ssp_gem_apv_test_797.root"
+    //"../Rootfiles/cluster_0_ssp_gem_apv_test_797.root"
+    "../Rootfiles/cluster_0_ssp_gem_apv_test_881.root"
+    //"../Rootfiles/merged_876_877.root"
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -260,7 +262,7 @@ TH2F* GetLayerCluster2DMap(const LayerCluster &layer_cluster, const int &nlayer)
     for(auto &chamber : layer_cluster.chamber_cluster) {
         for(auto &c: chamber.Hits2D) {
 //#ifdef MOLLER_UV_CHAMBER
-if (nlayer == 3){
+if (nlayer >= 3){
             // convert uv to xy
             std::pair<float, float> res = convert_uv_to_xy<float, float>(c.yc.pos, c.xc.pos, 26.5);
             hClusterMap -> Fill(res.first, res.second);
@@ -275,8 +277,6 @@ else{
         }
     }
 
-    hClusterMap -> GetXaxis() -> SetLabelSize(0.06);
-    hClusterMap -> GetXaxis() -> SetLabelOffset(-0.03);
     hClusterMap -> GetXaxis() -> SetTitle("X [mm]");
     hClusterMap -> GetXaxis() -> CenterTitle();
     hClusterMap -> GetXaxis() -> SetTitleOffset(0.2);

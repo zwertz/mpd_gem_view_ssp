@@ -770,7 +770,7 @@ void Viewer::OpenFile()
             this,
             "Open Document",
             //QDir::currentPath(),
-            "/home/daq/coda/data",
+            "/adaqeb1/data1/",
             "All files (*.*) ;; evio files (*.evio)");
 
     fFile = filename.toStdString();

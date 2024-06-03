@@ -30,9 +30,9 @@ int main(int argc, char* argv[])
     arg_parser.AddArg<bool>("-t", "replay_hit", "replay hit root tree (with zero sup)", false);
     arg_parser.AddArg<bool>("-z", "replay_cluster", "replay cluster root tree (with clustering)", true);
     arg_parser.AddArgs<std::string>({"--pedestal"}, "pedestal_file", "pedestal file", 
-	    "database/gem_ped_55.dat");
+	    "database/gem_ped_465.dat");
     arg_parser.AddArgs<std::string>({"--common_mode"}, "common_mode_file", "common mode file",
-	    "database/CommonModeRange_55.txt");
+	    "database/CommonModeRange_465.txt");
     arg_parser.AddArgs<std::string>({"--tracking"}, "tracking_switch", " switch on/off tracking",
 	    "off");
 
